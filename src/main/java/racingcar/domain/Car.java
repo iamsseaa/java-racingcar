@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import java.util.Random;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private static final int MAX_NAME_LENGTH = 5;
@@ -8,7 +8,6 @@ public class Car {
     private final String name;
     private int position;
     private static final int MOVE_THRESHOLD = 4;
-    private static final int RANDOM_BOUND = 10;
 
     public Car(String name) {
         validateName(name);
@@ -40,8 +39,8 @@ public class Car {
     }
 
     public void move() {
-        Random random = new Random();
-        moveWithNumber(random.nextInt(RANDOM_BOUND));
+        int number = Randoms.pickNumberInRange(0, 9);
+        moveWithNumber(number);
     }
 
     public boolean isAtPosition(int position) {
