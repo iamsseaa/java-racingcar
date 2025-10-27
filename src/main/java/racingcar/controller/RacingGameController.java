@@ -3,14 +3,18 @@ package racingcar.controller;
 import racingcar.domain.Car;
 import racingcar.domain.RacingGame;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
+
 import java.util.List;
 
 public class RacingGameController {
 
     private final InputView inputView;
+    private final OutputView outputView;
 
     public RacingGameController() {
         this.inputView = new InputView();
+        this.outputView = new OutputView();
     }
 
     public void run() {
@@ -32,9 +36,10 @@ public class RacingGameController {
     }
 
     private void runRounds(RacingGame racingGame, int attemptCount) {
-        System.out.println("\n실행 결과");
+        outputView.printExecutionResultHeader(); // 수정
         for (int i = 0; i < attemptCount; i++) {
             racingGame.playRound();
+            outputView.printRoundResult(racingGame.getCars());
         }
     }
 
