@@ -27,6 +27,7 @@ public class RacingGameController {
 
         int attemptCount = inputView.readAttemptCount();
         runRounds(racingGame, attemptCount);
+        outputView.printWinners(racingGame.getWinners());
     }
 
     private List<Car> createCars(List<String> carNames) {
