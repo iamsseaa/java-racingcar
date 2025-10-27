@@ -32,4 +32,18 @@ public class InputValidator {
             throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
         }
     }
+
+    public static int validateAttemptCount(String input) {
+        int count;
+        try {
+            count = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도 횟수는 숫자여야 합니다.");
+        }
+
+        if (count <= 0) {
+            throw new IllegalArgumentException("시도 횟수는 1 이상이어야 합니다.");
+        }
+        return count;
+    }
 }

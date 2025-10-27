@@ -17,4 +17,10 @@ public class InputView {
         // 예외 처리는 다음 커밋에서 InputValidator로 분리
         return InputValidator.validateCarNames(input);
     }
+
+    public int readAttemptCount() {
+        System.out.println("시도할 횟수는 몇 회인가요?");
+        String input = scanner.nextLine();
+        return InputValidator.validateAttemptCount(input);
+    }
 }
