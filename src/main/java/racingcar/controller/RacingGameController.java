@@ -18,11 +18,7 @@ public class RacingGameController {
     }
 
     public void run() {
-        try {
-            startRace();
-        } catch (IllegalArgumentException e) {
-            outputView.printError(e.getMessage());
-        }
+        startRace();
     }
 
     private void startRace() {
