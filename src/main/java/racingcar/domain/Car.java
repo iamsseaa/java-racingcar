@@ -43,4 +43,8 @@ public class Car {
         Random random = new Random();
         moveWithNumber(random.nextInt(RANDOM_BOUND));
     }
+
+    public boolean isAtPosition(int position) {
+        return this.position == position;
+    }
 }

@@ -19,4 +19,18 @@ public class RacingGame {
     public List<Car> getCars() {
         return cars;
     }
+
+    public List<Car> getWinners() {
+        int maxPosition = findMaxPosition();
+        return cars.stream()
+                .filter(car -> car.isAtPosition(maxPosition))
+                .toList();
+    }
+
+    private int findMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+    }
 }
